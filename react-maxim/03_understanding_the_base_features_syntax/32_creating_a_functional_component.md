@@ -48,11 +48,11 @@ Person.js
 ```js
 import React from 'react';
 
-const person = () => {
+const Person = () => {
   return <p>I'm a Person!</p>
 }
 
-export default person;
+export default Person;
 ```
 
 now, we can use this component in other files of our project

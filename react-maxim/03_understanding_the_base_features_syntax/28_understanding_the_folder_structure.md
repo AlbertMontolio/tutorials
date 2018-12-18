@@ -1,6 +1,6 @@
 # 28 understanding the folder structure
 
-route leve:
+route level:
 
 package.json
 

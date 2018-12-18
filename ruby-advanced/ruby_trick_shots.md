@@ -177,6 +177,309 @@ puts "yay" if 2 == 2 if 1 == 1
 end
 ```
 
+in map
+
+```ruby
+a = [1,2,3,4].map do |bar|
+  bar * 2
+end
+
+p a
+```
+the code block, behinde the scenes, is treated as a
+prop block
+
+from a lambda, you can use the return, like in a method
+
+in a prop block, thinks are sligthly different
+
+if we use return in a prop
+
+```ruby
+a = [1,2,3,4].map do |bar|
+  return 10
+  bar * 2
+end
+
+p a
+```
+
+unexpected return
+
+in procs, the scope of return, is the outter one, where the proc sits, not the proc istelf
+
+since we are in the main scope, you can not return there
+
+what if i want to return a different value
+
+```ruby
+a = [1,2,3,4].map do |bar|
+  return 10 if rand(5) == 0
+  bar * 2
+end
+
+p a
+```
+
+in scope of prop blocks
+this will return 10 to map
+
+
+
+# closure in lambdas
+
+```ruby
+def multiple_generator(m)
+  puts "entering the method"
+  puts "m: #{m}"
+  puts "storing a_lambda in memory..."
+  a_lambda = lambda do |n|
+    puts "inside the lambda"
+    puts "n: #{n}"
+    puts "m: #{m} that's a surprise"
+    n * m
+  end
+  puts "method is finished"
+  return a_lambda
+end
+
+doubler = multiple_generator(2)
+puts "abandoning the method"
+puts "doubler contains a_lambda"
+p doubler
+# tripler = multiple_generator(3)
+
+puts "calling the lambda passing n argument (5)"
+puts doubler[5] #=> 10
+# puts tripler[10] #=> 30
+```
+
+# zipping arrays together
+
+```ruby
+names = %w{fred jess john}
+ages = [38,47,91]
+
+p names.zip(ages)
+p Hash[names.zip(ages)]
+```
+
+```ruby
+[["fred", 38], ["jess", 47], ["john", 91]]
+{"fred"=>38, "jess"=>47, "john"=>91}
+```
+
+
+you can even zip more
+
+```ruby
+locations = %{spain france usa}
+
+p names.zip(ages, locations)
+
+names.zip(ages, locations) do |foo|
+  p foo
+end
+```
+
+it gets a block, its like an each
+
+# exploding ranges into arrays
+
+```ruby
+[*10..20]
+=> [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+c = 10
+[*c]
+c = [1,2,3,4]
+Array(c)
+Array(10..20)
+```
+
+# json output
+
+```ruby
+require "json"
+h is an array of hashes
+p h
+j h => wow! used in js
+j h => wow! used in js
+```
+
+# __method__
+get the name of the method you are currently in
+
+```ruby
+def my_method
+  p __method__
+  p __callee__
+end
+
+my_method
+```
+
+```ruby
+class X
+  def self.make_stuff(*meths)
+    meths.each do |meth|
+      define_method(meth) do
+        __method__
+      end
+    end
+  end
+
+  make_stuff :a, :b, :c
+end
+
+x = X.new
+p x.a
+p x.b
+p x.c
+```
+
+# multiline method chaining
+
+```ruby
+puts "this is a test".scan(/\w+)
+                     .map(&:upcase)
+                     .map(&:reverse)
+                     .to_s)
+
+```
+
+# _ in irb
+
+```ruby
+_ last value
+
+```
+
+# checking set bits in numbers
+
+represent binary num
+
+```ruby
+0b0101010
+c = 0b010101010
+#=> 170
+c[0]
+
+from the right
+c & 1 << 0
+c & 1 << 1
+```
+
+
+# parameters defaulting to other parameters
+
+```ruby
+def my_method(a, b = a)
+  puts "#{a} #{b}"
+end
+
+my_method(1) # a= 1, b= 1
+my_method(2) # a= 1, b= 2
+
+```
+
+if second argument does not come throgh its a
+
+# Proc#source_location
+
+```ruby
+a = ->{ }
+b = ->{ }
+
+p a.source_location
+p b.source_location
+```
+
+
+this also works in method
+
+```ruby
+require 'app'
+p method(:ap).source_location
+```
+
+```ruby
+require 'active_support/core_ext/string/inflections'
+p "WonderBar".method(:tableize).source_location
+```
+
+
+# prepending to a string in a place
+
+```ruby
+a = "world"
+"hello " + a
+
+a.insert(0, "hello ")
+
+a.prepend("Hello ")
+```
+
+storing data in the source File
+
+```ruby
+puts "Hello world!"
+
+__END__
+
+puts "Do we ever get here?"
+
+```
+
+tells ruby don't go beyond this point
+
+```ruby
+puts "Hello world!"
+
+puts DATA.read
+
+__END__
+
+puts "Do we ever get here?"
+
+```
+
+after the end we place data
+
+
+```ruby
+puts "Hello world!"
+
+DATA.rewind
+puts DATA.read
+
+__END__
+
+puts "Do we ever get here?"
+```
+
+we read the whole file
+
+
+# a few simple regular expression matching tricks
+
+```ruby
+str = "Fred Flintstone: Superhero"
+str[/\w+/]
+str[/(\w+) (\w+)/]
+str[/(\w+) (\w+)/, 1]
+str[/(\w+) (\w+)/, 2]
+str[/(?<a>\w+) (?<b>\w+)/, :a]
+str[/(?<a>\w+) (?<b>\w+)/, :b]
+
+
+str[/(?<a>\w+) (?<b>\w+)/]
+$tilde[:a]
+
+/(?<a>\w+) (?<b>\w+)/ =tilde str
+a
+b
+```
+
 
 
 

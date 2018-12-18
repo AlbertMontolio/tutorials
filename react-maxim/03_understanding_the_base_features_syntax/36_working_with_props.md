@@ -10,16 +10,16 @@ return (
     <h1>hi i am a react app</h1>
     <p>This is workingg</p>
     <Person name="Albert" age="32"></Person>
-    <Person name="Ina" age="29"></Person>
+    <Person name="Carina" age="29"></Person>
     <Person name="Mode" age="60"></Person>
   </div>
 );
 ```
 
-for Ina, we would to add some additional information
+for Carina, we would like to add some additional information
 
 ```js
-<Person name="Ina" age="29">My Hobbies: Racing</Person>
+<Person name="Carina" age="29">My Hobbies: Racing</Person>
 ```
 
 now we need to change sth inside our component, so that we can use this new attributes
@@ -61,7 +61,7 @@ what about the hobbies?
 content in between the tags. how can we have access to?
 
 ```html
-<Person name="Ina" age="29">Hobbies: Racing</Person>
+<Person name="Carina" age="29">Hobbies: Racing</Person>
 ```
 
 i want to output what we pass inside

@@ -22,13 +22,13 @@ function sortArgs(...args) {
 }
 ```
 
-sortArgs receives a lot or args, they will be all merged together in an array
+sortArgs receives a lot of args, they will be all merged together in an array
 
 ```js
 const numbers = [1, 2, 3];
 const newNumbers = [...numbers, 4]
 const newNumbers = [numbers, 4]
-console.log(newNumberes)
+console.log(newNumbers)
 
 ```
 

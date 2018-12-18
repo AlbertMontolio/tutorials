@@ -32,7 +32,6 @@ end
 ```
 
 rails_helper.rb
-
 ```ruby
 require "capybara/rails"
 ```

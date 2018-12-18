@@ -1,6 +1,6 @@
 # 27 Create React App
 
-google create react app
+google: create react app
 
 we find installation instructions etc.
 

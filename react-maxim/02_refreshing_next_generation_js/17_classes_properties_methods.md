@@ -24,7 +24,6 @@ ES6
 myMethod() {...}
 ```
 
-
 ES7
 
 ```js

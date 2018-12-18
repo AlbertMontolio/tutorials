@@ -4,7 +4,6 @@ index.js
 
 ```js
 ReactDOM.render(<App />, document.getElementById('root'));
-
 ```
 
 we could even put html instead of the app
@@ -20,7 +19,6 @@ the app component, you would nest all the components your application might need
 App extends Component
 
 which comes from the react library
-
 
 ```js
 import React, { Component } from 'react';
@@ -39,7 +37,6 @@ class App extends Component {
 
 export default App;
 ```
-
 
 this class has the render()
 

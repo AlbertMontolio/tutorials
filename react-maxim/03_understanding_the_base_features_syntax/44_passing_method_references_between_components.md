@@ -33,7 +33,6 @@ passing the reference of a method to the click property
 now in my component, i can just use props and the name of the property
 
 Person.js
-
 ```js
 <p onClick={props.click}>I'm a {props.name} and i am {props.age} years old!</p>
 ```

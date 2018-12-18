@@ -6,9 +6,6 @@ single page applications
 only one html page, content i srerendered on client
 
 
-
-
-
 mutli page applications
 
 multiple html pages, content is rendered on server

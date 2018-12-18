@@ -54,11 +54,11 @@ this is important in react
 
 if you copy objects and arrays like this
 
-we will learn techniques to really copy, not the pinter
+we will learn techniques to really copy, not the pointer
 
 we can do:
 
-the spread. pulls out the object and creates a new one
+>the spread. pulls out the object and creates a new one
 
 ```js
 const person = {

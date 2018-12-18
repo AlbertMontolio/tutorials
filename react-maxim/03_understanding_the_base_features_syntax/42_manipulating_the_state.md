@@ -45,8 +45,6 @@ state = {
 }
 ```
 
-
-
 ```js
 this.setState({
   persons: [

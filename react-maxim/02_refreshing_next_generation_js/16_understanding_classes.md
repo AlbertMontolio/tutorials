@@ -37,7 +37,7 @@ person.printMyName();
 constructor is a built-in method, it will be executed whenever you instantiate the class
 
 ```js
-class Huamn {
+class Human {
   constructor() {
     this.gender = 'male';
   }

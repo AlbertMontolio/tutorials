@@ -9,7 +9,6 @@ you can do it paying attention to the order you import them in the html files
 we can also import js files in other files
 
 person.js
-
 ```js
 const person = {
   name: 'Max'
@@ -17,16 +16,14 @@ const person = {
 
 export default person
 ```
+
 ```js
-
-utility.js
-
+// utility.js
 export const clean = () => {...}
 export const baseData = 10;
 ```
 
 app.js
-
 ```js
 import person from './person.js'
 import prs from '.person.js'
