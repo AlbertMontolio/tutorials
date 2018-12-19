@@ -1,10 +1,64 @@
 import React, { Component } from 'react';
 import './App.css';
+import UserInput from './UserInput/UserInput.js';
+import UserOutput from './UserOutput/UserOutput.js';
+import './UserOutput/UserOutput.css';
 
 class App extends Component {
+
+  state = {
+    userNames: [
+      {name: "Edu"},
+      {name: "Joel"},
+      {name: "Rata"},
+    ]
+  }
+
+  changeNameHandler = () => {
+    this.setState({
+      userNames: [
+        {name: "edu"},
+        {name: "joel"},
+        {name: "rata"},
+      ]}
+    )
+  }
+
+  changeNameEvent = (event) => {
+    this.setState({
+      userNames: [
+        {name: event.target.value},
+        {name: "Joel"},
+        {name: "Rata"},
+      ]}
+    )
+  }
+
   render() {
+
     return (
+
       <div className="App">
+        <UserInput
+          nameChanged={this.changeNameEvent}
+          name={this.state.userNames[0].name}
+        ></UserInput>
+
+        <button
+          onClick={this.changeNameHandler}
+        >
+          Decapitalize names!
+        </button>
+
+        <UserOutput
+          userName={this.state.userNames[0].name}
+        ></UserOutput>
+        <UserOutput
+          userName={this.state.userNames[1].name}
+        ></UserOutput>
+        <UserOutput
+          userName={this.state.userNames[2].name}
+        ></UserOutput>
         <ol>
           <li>Create TWO new components: UserInput and UserOutput</li>
           <li>UserInput should hold an input element, UserOutput two paragraphs</li>
