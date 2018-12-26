@@ -1,1 +1,5 @@
-52_outputting_lists_intro.md
+# 52 outputting lists intro
+
+we hard-coded Person, not dynamically
+
+
